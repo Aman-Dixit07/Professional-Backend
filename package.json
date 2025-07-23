@@ -1,0 +1,20 @@
+{
+  "name": "professional_backend",
+  "version": "1.0.0",
+  "description": "a professional backend",
+  "type": "module",
+  "keywords": [
+    "javascript",
+    "expressjs"
+  ],
+  "license": "ISC",
+  "author": "Aman Dixit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "prettier": "^3.6.2"
+  }
+}
