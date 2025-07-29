@@ -1,5 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
-import { fs } from "fs";
+import fs from "fs";
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -7,13 +7,14 @@ cloudinary.config({
   api_secret: process.env.CLOUD_API_SECRET,
 });
 
-const uploadOnCloudinary = async (localFilePath) => {
+export const uploadOnCloudinary = async (localFilePath) => {
   try {
     if (!localFilePath) return null;
     const responce = await cloudinary.uploader.upload(localFilePath, {
       resource_type: "auto",
     });
-    console.log("File uploaded on cloudinary!", responce.url);
+    //console.log("File uploaded on cloudinary!", responce.url);
+    fs.unlinkSync(localFilePath);
     return responce;
   } catch (error) {
     fs.unlinkSync(localFilePath); // removes the saved file from server or localfilepath i.e. public
